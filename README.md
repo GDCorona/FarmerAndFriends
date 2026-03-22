@@ -21,7 +21,7 @@ A farmer from Morioh-chou is stranded at the riverbank with a bag of beans and h
 **Installation:**
 1. Clone this repository:
    ```bash
-   git clone [https://github.com/YourUsername/FarmerAndFriends.git](https://github.com/GDCorona/FarmerAndFriends.git)
+   git clone [https://github.com/GDCorona/FarmerAndFriends.git](https://github.com/GDCorona/FarmerAndFriends.git)
 2. Navigate to the project folder:
    ```bash
    cd FarmerAndFriends
