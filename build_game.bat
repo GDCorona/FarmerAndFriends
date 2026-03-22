@@ -1,0 +1,1 @@
+pyinstaller --noconsole --icon=icon.ico FarmerAndFriends.py
