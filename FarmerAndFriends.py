@@ -380,7 +380,7 @@ def draw_help_popup(mouse_pos):
     title_surf = large_font.render("How to Play", True, BLACK)
     screen.blit(title_surf, title_surf.get_rect(center=(WIDTH // 2, 70)))
     instructions = [
-        "The farmer with a bag of beans and his two pets, a goose and a fox are stranded at the riverbank. The goose and the fox are both impaired and incapable of swimming for a magical reason. Your task is to help the farmer bring everything safely to the other side of the river. But remember:",
+        "A farmer from Morioh-chou is stranded at the riverbank with a bag of beans and his two pets, a goose and a fox. The goose and the fox are both impaired and incapable of swimming for a magical reason. Your task is to help the farmer bring everything safely to the other side of the river. But remember:",
         "1. The farmer is weak so he can only take one item with him each time he crosses the river.",
         "2. The fox and the goose don't get along well and they must not be left alone without the farmer's supervision.",
         "3. The goose is starving and will immediately swallow all of the farmer's beans if he isn't there.",
