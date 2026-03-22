@@ -5,7 +5,7 @@ It all began from a small riddle given by my college teacher. A sudden impulse p
 ![Gameplay Screenshot](images/icon.png) 
 
 ## 🎮 About the Game
-A farmer from Morioh-chou is stranded at the riverbank with a bag of beans and his two pets: a goose and a fox. Help him bring everything safely to the other side of the river without breaking the rules. 
+A farmer from Morioh-chou is stranded at the riverbank with a bag of beans and his two pets: a goose and a fox. Help him bring everything safely to the other side of the river without breaking the constraints. 
 
 ## 🚀 Download and Play (Windows)
 1. Go to the [Releases](../../releases) tab on the right side of this page.
