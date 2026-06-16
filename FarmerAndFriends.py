@@ -96,14 +96,14 @@ fail_snd  = load_snd("sound/fail.wav")
 try:
     pygame.mixer.music.load("sound/bgmusic.mp3") 
 except (pygame.error, FileNotFoundError):
-    pass # Background music gracefully fails if missing
+    pass
 
 # ==========================================
 # 3. GAME VARIABLES & STATE
 # ==========================================
 # Application State
-current_screen = "LOADING" # <--- CHANGED FROM "MENU"
-loading_progress = 0.0     # <--- ADD THIS
+current_screen = "LOADING"
+loading_progress = 0.0    
 music_on, sfx_on = True, True
 
 # Puzzle State
@@ -247,7 +247,7 @@ def draw_wrapped_text(surface, text, font, color, max_width, start_x, start_y, l
         else:
             lines.append(current_line)
             current_line = word + " "
-    lines.append(current_line) # Add the last line
+    lines.append(current_line)
 
     # Draw each line and move down
     y_offset = start_y
@@ -256,7 +256,7 @@ def draw_wrapped_text(surface, text, font, color, max_width, start_x, start_y, l
         surface.blit(text_surf, (start_x, y_offset))
         y_offset += line_spacing
         
-    return y_offset # Return the final Y position so the next paragraph knows where to start!
+    return y_offset # Return the final Y position
 
 # ==========================================
 # 7. SCREEN DRAWING FUNCTIONS
@@ -338,7 +338,7 @@ def draw_game(mouse_pos):
     for i, img in enumerate(images):
         if img: screen.blit(img, (100 if state[i] == 0 else 650, y_positions[i]))
 
-    # Disable background hover if ANY popup is active
+    # Disable background hover if any popup is active
     is_blocked = confirm_home or popup_timer > 0 or show_help or show_hard_info
     btn_mouse_pos = (-1, -1) if is_blocked else mouse_pos
     # Draw Gameplay Buttons & Counters
@@ -357,7 +357,7 @@ def draw_game(mouse_pos):
             if heart_img: screen.blit(heart_img, (x, HEIGHT - 55))
             else: pygame.draw.circle(screen, RED, (x + 15, HEIGHT - 40), 12)
 
-    # Popups (Using the REAL mouse_pos so their buttons still glow!)
+    # Popups
     if popup_timer > 0:
         popup_rect = pygame.Rect(180, 150, 450, 100)
         draw_panel(popup_rect, (255, 255, 255, 230), RED)
@@ -390,8 +390,6 @@ def draw_help_popup(mouse_pos):
     max_text_width = 620
     start_x = 90
     for paragraph in instructions:
-        # draw_wrapped_text returns the new Y coordinate, so we just update current_y!
-        # We also add an extra 10 pixels of padding between paragraphs.
         current_y = draw_wrapped_text(screen, paragraph, small_font, BLACK, max_text_width, start_x, current_y) + 10
     close_help_btn.centery = 430
     draw_button(close_help_btn, "Close", RED, RED_HOVER, mouse_pos, WHITE)
@@ -400,7 +398,7 @@ def draw_hard_info_popup(mouse_pos):
     if not show_hard_info: return
     
     rect = pygame.Rect(150, 100, 500, 250)
-    draw_panel(rect, (255, 255, 255, 250), RED) # Red border to look dangerous!
+    draw_panel(rect, (255, 255, 255, 250), RED)
     
     title_surf = large_font.render("HARD MODE ACTIVATED!!!", True, RED)
     screen.blit(title_surf, title_surf.get_rect(center=(WIDTH // 2, 140)))
@@ -443,7 +441,7 @@ while running:
     is_hovering = False
     # Only show pointer if the screen isn't fading
     if fade_state == 0: 
-        # 1. Check Top-Level Popups First
+        # 1. Check top-level popups first
         if show_hard_info:
             if close_hard_btn.collidepoint(mouse_pos): is_hovering = True
         elif show_help:
@@ -481,7 +479,7 @@ while running:
     # --------------------------
     # 1. Timers & Cooldowns
     if current_screen == "LOADING" and fade_state == 0:
-        loading_progress += 1.5 # Change this number to make it load faster or slower
+        loading_progress += 1.5
         if loading_progress >= 100:
             loading_progress = 100
             change_screen("MENU")
